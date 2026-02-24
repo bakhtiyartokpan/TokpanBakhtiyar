@@ -2,21 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Personal Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial NPV Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
-
-<h1>Personal Calculator</h1>
-
-<form id="calculatorForm">
-    <!-- Add input fields here -->
-</form>
-
-<div id="output">
-    <!-- Results will be displayed here -->
-</div>
-
-<script src="script.js"></script>
+    <div class="container">
+        <div class="header">
+            <h1>💰 Financial NPV Calculator</h1>
+            <p>Calculate Net Present Value with visual analysis</p>
+        </div>
+        
+        <div class="content">
+            <div class="input-section">
+                <h2>Input Parameters</h2>
+                
+                <div class="form-group">
+                    <label for="discount">Discount Rate (%):</label>
+                    <input type="number" id="discount" placeholder="e.g., 10" value="10" step="0.1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="initial">Initial Investment ($):</label>
+                    <input type="number" id="initial" placeholder="e.g., 100000" value="100000" step="0.01">
+                </div>
+                
+                <h3 style="color: #667eea; margin-top: 20px; margin-bottom: 10px;">Cash Flows by Year</h3>
+                <div class="cash-flows" id="cashFlowsContainer">
+                    <div class="cash-flow-item">
+                        <input type="number" class="cash-flow" placeholder="Year 1" value="30000" step="0.01">
+                        <button onclick="removeCashFlow(this)" style="width: auto; padding: 5px 10px;">✕</button>
+                    </div>
+                </div>
+                
+                <button onclick="addCashFlow()">+ Add Year</button>
+                <button onclick="calculateNPV()" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); margin-top: 20px;">Calculate NPV</button>
+            </div>
+            
+            <div class="results-section">
+                <h2>Results</h2>
+                
+                <div class="result-box">
+                    <div class="result-label">Net Present Value (NPV)</div>
+                    <div class="result-value" id="npvResult">-</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Payback Period (years)</div>
+                    <div class="result-value" id="paybackResult">-</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Profitability Index</div>
+                    <div class="result-value" id="piResult">-</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Total Inflow</div>
+                    <div class="result-value" id="inflowResult">-</div>
+                </div>
+            </div>
+            
+            <div class="charts">
+                <div class="chart-container">
+                    <canvas id="cashFlowChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="npvChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
