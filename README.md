@@ -104,3 +104,11 @@ During the oral assessment, you should be able to explain:
 - `style.css` → styling for the page  
 - `script.js` → JavaScript file for calculations and logic  
 - `README.md` → clear explanation of your project and description of your solution
+
+My project calculates the NPV(Net present value) based on the data provided by user. Firstly, let’s answer the question: what is NPV? 
+We know that every currency in the World tends to have a smaller value each year. This happens because of the inflation. My calculator counts the ‘real’ profit based on the currency of the first year. For example:
+Patrick invested 100 dollars to the project and he gets 40 dollar per year from it. Discount rate, the rate of the inflation, is 4% each year. Therefore, we divide 40 by 1.04, then by 1.04^2, then by 1.04^3 and so on until his project will make some profit based on the initial investments, the value of the currency on the year 0. 
+My calculator counts the NPV based on the data that user provided. Also, to make it easier to understand it has a charts. User types the discount rate, the cashflow of the each year, and the initial investments. By doing so, user will find the NPV, Payback period(the amount of time needed for a project to be profitable), and Profitability index. 
+
+I used some AI to make the code, since I don’t know coding, but after some video explanations I started to understand the code and what functions each part of the code does. The first part of the code introduces the CSS code for design. Next part made by HTML is made for labeling and fundament of the code, and lastly the JS used for scripts and calculations. 
+The calculations were made by special formula of the NPV. Regarding profitability index, we can use the formula where we adding Initial Investments to the NPV, and dividing it by the Initial investments. 
